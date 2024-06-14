@@ -1,5 +1,7 @@
 import Route from "@ioc:Adonis/Core/Route";
 
-Route.get("/", async () => {
+Route.get("/hello", async () => {
   return { hello: "Hello world" };
 });
+
+Route.resource("tasks", "TasksController");
