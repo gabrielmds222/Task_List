@@ -1,17 +1,41 @@
-import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
+import User from "App/Models/User";
 
 export default class UsersController {
-  public async index({}: HttpContextContract) {}
+  public async index({}: HttpContextContract) {
+    const user = await User.all();
+    return user;
+  }
 
-  public async create({}: HttpContextContract) {}
+  public async store({ request }: HttpContextContract) {
+    const body = request.only(["username", "email", "password"]);
+    const user = await User.create({
+      username: body.username,
+      email: body.email,
+      password: body.password,
+    });
 
-  public async store({}: HttpContextContract) {}
+    console.log(user.$isPersisted);
+    return user;
+  }
 
-  public async show({}: HttpContextContract) {}
+  public async show({ request }: HttpContextContract) {
+    const userId = request.param("id");
+    const user = await User.findOrFail(userId);
+    return user;
+  }
 
-  public async edit({}: HttpContextContract) {}
+  public async update({ request }: HttpContextContract) {
+    const userId = request.param("id");
+    const body = request.only(["username", "email", "password"]);
+    const user = await User.findOrFail(userId);
+    await user.merge(body).save();
+    return user;
+  }
 
-  public async update({}: HttpContextContract) {}
-
-  public async destroy({}: HttpContextContract) {}
+  public async destroy({ request }: HttpContextContract) {
+    const userId = request.param("id");
+    const user = await User.findOrFail(userId);
+    await user.delete();
+  }
 }

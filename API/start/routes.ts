@@ -5,3 +5,5 @@ Route.get("/hello", async () => {
 });
 
 Route.resource("tasks", "TasksController");
+
+Route.resource("users", "UsersController");
