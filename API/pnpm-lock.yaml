@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@adonisjs/auth':
+        specifier: 8.2.3
+        version: 8.2.3(@adonisjs/application@5.3.0)(@adonisjs/core@5.9.0)(@adonisjs/lucid@18.4.0(@adonisjs/application@5.3.0)(@adonisjs/core@5.9.0)(pg@8.12.0))
       '@adonisjs/core':
         specifier: ^5.8.0
         version: 5.9.0
@@ -35,6 +38,9 @@ importers:
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
+      uuid:
+        specifier: ^10.0.0
+        version: 10.0.0
     devDependencies:
       '@adonisjs/assembler':
         specifier: 5.9.6
@@ -82,6 +88,24 @@ packages:
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@adonisjs/core': ^5.1.0
+
+  '@adonisjs/auth@8.2.3':
+    resolution: {integrity: sha512-js9e8AHEsNC/8MGvho6MgL+uXr8SlhTg9MJJDWQBBiqsKkT7+H7NMP/pLbuSzYaaf40t2u/OXfq6wXuIC5ZYvw==}
+    peerDependencies:
+      '@adonisjs/core': ^5.7.1
+      '@adonisjs/i18n': ^1.5.0
+      '@adonisjs/lucid': ^18.0.0
+      '@adonisjs/redis': ^7.2.0
+      '@adonisjs/session': ^6.2.0
+    peerDependenciesMeta:
+      '@adonisjs/i18n':
+        optional: true
+      '@adonisjs/lucid':
+        optional: true
+      '@adonisjs/redis':
+        optional: true
+      '@adonisjs/session':
+        optional: true
 
   '@adonisjs/bodyparser@8.1.9':
     resolution: {integrity: sha512-enVETPmoBJhg+CP6AVlG/GSwllpW/5y22wjFpEhYZl0YOXnE7i+wsp2VeGfMtQzl4+snTuAPEfwCtG+I/s6jqQ==}
@@ -2789,6 +2813,10 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  uuid@10.0.0:
+    resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    hasBin: true
+
   valid-url@1.0.9:
     resolution: {integrity: sha512-QQDsV8OnSf5Uc30CKSwG9lnhMPe6exHtTXLRYX8uMwKENy640pU+2BgBL0LRbDh/eYRahNCS7aewCx0wf3NYVA==}
 
@@ -2913,6 +2941,17 @@ snapshots:
       slash: 3.0.0
     transitivePeerDependencies:
       - supports-color
+
+  '@adonisjs/auth@8.2.3(@adonisjs/application@5.3.0)(@adonisjs/core@5.9.0)(@adonisjs/lucid@18.4.0(@adonisjs/application@5.3.0)(@adonisjs/core@5.9.0)(pg@8.12.0))':
+    dependencies:
+      '@adonisjs/core': 5.9.0
+      '@poppinss/hooks': 5.0.3(@adonisjs/application@5.3.0)
+      '@poppinss/utils': 5.0.0
+      luxon: 3.4.4
+    optionalDependencies:
+      '@adonisjs/lucid': 18.4.0(@adonisjs/application@5.3.0)(@adonisjs/core@5.9.0)(pg@8.12.0)
+    transitivePeerDependencies:
+      - '@adonisjs/application'
 
   '@adonisjs/bodyparser@8.1.9(@adonisjs/application@5.3.0)(@adonisjs/drive@2.3.0(@adonisjs/application@5.3.0)(@adonisjs/http-server@5.12.0(@adonisjs/application@5.3.0)(@adonisjs/encryption@4.0.8(@adonisjs/application@5.3.0))))(@adonisjs/http-server@5.12.0(@adonisjs/application@5.3.0)(@adonisjs/encryption@4.0.8(@adonisjs/application@5.3.0)))':
     dependencies:
@@ -5974,6 +6013,8 @@ snapshots:
   use@3.1.1: {}
 
   util-deprecate@1.0.2: {}
+
+  uuid@10.0.0: {}
 
   valid-url@1.0.9: {}
 

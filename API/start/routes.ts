@@ -4,6 +4,24 @@ Route.get("/hello", async () => {
   return { hello: "Hello world" };
 });
 
-Route.resource("tasks", "TasksController");
+Route.post("login", async ({ auth, request, response }) => {
+  const email = request.input("email");
+  const password = request.input("password");
+
+  try {
+    const token = await auth.use("api").attempt(email, password);
+    return token;
+  } catch {
+    return response.unauthorized("Invalid credentials");
+  }
+});
+
+Route.get("dashboard", async ({ auth }) => {
+  await auth.use("api").authenticate();
+  console.log(auth.user);
+  return "usuário autenticado";
+});
+
+// Route.resource("tasks", "TasksController");
 
 Route.resource("users", "UsersController");
