@@ -1,18 +1,14 @@
 import BaseSchema from "@ioc:Adonis/Lucid/Schema";
 
 export default class extends BaseSchema {
-  protected tableName = "users";
+  protected tableName = "tasks";
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments("id");
-      table.string("username");
-      table.string("email");
-      table.string("password");
-
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
+      table.uuid("id").primary();
+      table.string("title");
+      table.string("description");
+      table.boolean("status").defaultTo(false);
       table.timestamp("created_at", { useTz: true });
       table.timestamp("updated_at", { useTz: true });
     });
